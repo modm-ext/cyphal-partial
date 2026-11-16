@@ -23,6 +23,8 @@ jobs:
           wget -qL https://raw.githubusercontent.com/modm-ext/partial/main/partial.py
           python3 partial.py -v OpenCyphal/libcanard --dest libcanard LICENSE "libcanard/*" "lib/cavl2/*"
           python3 partial.py -v --head OpenCyphal/public_regulated_data_types --dest public_regulated_data_types LICENSE "reg/**/*" "uavcan/**/*"
+          python3 partial.py -v --head dronecan/libcanard --dest dronecan/libcanard LICENSE canard.c canard.h canard_internals.h
+          python3 partial.py -v --head dronecan/DSDL --dest dronecan/dsdl LICENSE "uavcan/**/*.uavcan" "dronecan/**/*.uavcan" "ardupilot/**/*.uavcan" "com/**/*.uavcan" "cuav/**/*.uavcan" "mppt/**/*.uavcan"
       - name: Git push
         if: github.ref == 'refs/heads/main'
         run: |
